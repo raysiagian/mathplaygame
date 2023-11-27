@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "869906257461",
+    "project_id": "mathplaygame-13b60",
+    "storage_bucket": "mathplaygame-13b60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869906257461:android:52122dd470993b206a437c",
+        "android_client_info": {
+          "package_name": "com.example.mathplaygame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6ALI-xTd3__NYw4efxGXfCOXQMW6Ysiw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
