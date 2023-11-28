@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'pretest1misi1_page.dart';
 import 'pretest2misi1_page.dart';
+import 'pretest3misi1_page.dart';
 
 class Misi1Page extends StatelessWidget {
   @override
@@ -121,7 +122,15 @@ class Misi1Page extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 CircleElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            Pretest3misi1Page(),
+                                      ),
+                                    );
+                                  },
                                   text: '3',
                                 ),
                                 SizedBox(width: 10),

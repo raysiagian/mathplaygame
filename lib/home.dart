@@ -133,89 +133,92 @@ class CardWithIcons extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              width: 70,
-              height: 300,
-              decoration: BoxDecoration(
-                color: Color(0xFF023C40),
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(50),
-                  topLeft: Radius.circular(50),
+          Positioned(
+            bottom: 0,
+              child:   Container(
+                width: 70,
+                height: 300,
+                decoration: BoxDecoration(
+                  color: Color(0xFF023C40),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(50),
+                    topLeft: Radius.circular(50),
+                  ),
                 ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
-                      );
-                    },
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          activeIcon == Icons.home
-                              ? 'img/home_on.png'
-                              : 'img/home_off.png',
-                          width: 50.0,
-                          height: 50.0,
-                          color: Colors.blue,
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          'Home',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            activeIcon == Icons.home
+                                ? 'img/home_on.png'
+                                : 'img/home_off.png',
+                            width: 50.0,
+                            height: 50.0,
+                            color: Colors.blue,
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            'Home',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => PlayPage()),
-                      );
-                    },
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          'img/play_off.png', // Placeholder image
-                          width: 50.0,
-                          height: 50.0,
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          'Play', // Placeholder label
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => PlayPage()),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            'img/play_off.png', // Placeholder image
+                            width: 50.0,
+                            height: 50.0,
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            'Play', // Placeholder label
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => ProfilePage()),
-                      );
-                    },
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          'img/profile_off.png', // Placeholder image
-                          width: 50.0,
-                          height: 50.0,
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          'Profile', // Placeholder label
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => ProfilePage()),
+                        );
+                      },
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            'img/profile_off.png', // Placeholder image
+                            width: 50.0,
+                            height: 50.0,
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            'Profile', // Placeholder label
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],

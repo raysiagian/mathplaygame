@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'misi1_page.dart';
 
 class Pretest1misi1Page extends StatefulWidget {
   @override
@@ -97,49 +98,121 @@ class _Pretest1misi1PageState extends State<Pretest1misi1Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Pretest 1 Misi 1'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Question ${questionIndex + 1}: ${questions[questionIndex]['question']}',
-              style: TextStyle(fontSize: 20.0),
-            ),
-            SizedBox(height: 20.0),
-            Text(
-              'Time remaining: ${getFormattedTime()}',
-              style: TextStyle(fontSize: 16.0),
-            ),
-            SizedBox(height: 20.0),
-            Wrap(
-              spacing: 10.0,
-              runSpacing: 10.0,
-              children: List.generate(
-                4,
-                    (index) => GestureDetector(
-                  onTap: () => checkAnswer(index),
-                  child: Container(
-                    width: 50.0,
-                    height: 50.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.blue, // You can customize the color
+      body: Stack(
+        children: [
+          Positioned(
+            top: 20.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Level 1',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Color(0xFF023C40),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+                Text(
+                  'Time: ${getFormattedTime()}',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Color(0xFF023C40),
+                  ),
+                ),
+                if (questionIndex < questions.length)
+                  SizedBox(height: 20.0),
+                if (questionIndex < questions.length)
+                  Text(
+                    'Pertanyaan ${questionIndex + 1}',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Color(0xFF023C40),
                     ),
-                    child: Center(
-                      child: Text(
-                        questions[questionIndex]['options'][index],
-                        style: TextStyle(fontSize: 16.0, color: Colors.white),
+                  ),
+                if (questionIndex < questions.length)
+                  SizedBox(height: 40.0),
+              ],
+            ),
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (questionIndex < questions.length)
+                  Text(
+                    '${questions[questionIndex]['question']}',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                if (questionIndex < questions.length)
+                  SizedBox(height: 20.0),
+                if (questionIndex < questions.length)
+                  Wrap(
+                    spacing: 10.0,
+                    runSpacing: 10.0,
+                    children: List.generate(
+                      4,
+                          (index) => GestureDetector(
+                        onTap: () => checkAnswer(index),
+                        child: Container(
+                          width: 50.0,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(0xFF023C40), // Ubah warna latar belakang button
+                          ),
+                          child: Center(
+                            child: Text(
+                              questions[questionIndex]['options'][index],
+                              style: TextStyle(fontSize: 16.0, color: Colors.white),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),
+                if (questionIndex < questions.length)
+                  SizedBox(height: 20.0),
+                Positioned(
+                  bottom: 40.0,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (questionIndex >= questions.length)
+                        Text(
+                          'Score: $score / 5',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      if (questionIndex >= questions.length)
+                        SizedBox(height: 40.0),
+                      if (questionIndex >= questions.length)
+                        ElevatedButton(
+                          onPressed: () {
+                            // Navigasi ke halaman Misi1Page
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Misi1Page(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF023C40),
+                          ),
+                          child: Text(
+                            'Buka Peta Petualangan',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -153,9 +226,6 @@ class ResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Result Page'),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -168,6 +238,27 @@ class ResultPage extends StatelessWidget {
             Text(
               'Score: $score / 5',
               style: TextStyle(fontSize: 18.0),
+            ),
+            SizedBox(height: 40.0),
+            ElevatedButton(
+              onPressed: () {
+                // Navigasi ke halaman Misi1Page
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Misi1Page(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xFF023C40),
+              ),
+              child: Text(
+                'Buka Peta Petualangan',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
         ),
