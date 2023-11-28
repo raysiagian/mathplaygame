@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pretest1misi1_page.dart';
+import 'pretest2misi1_page.dart';
 
 class Misi1Page extends StatelessWidget {
   @override
@@ -13,7 +14,7 @@ class Misi1Page extends StatelessWidget {
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/bg_mission_1.png'),
+                image: AssetImage('img/bg_mission_1.png'),
                 fit: BoxFit.fill,
               ),
             ),
@@ -40,7 +41,7 @@ class Misi1Page extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 30.0,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF13877E),
+                            color: Color(0xFF023C40),
                           ),
                         ),
                       ],
@@ -83,31 +84,17 @@ class Misi1Page extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(width: 10),
-                                Container(
-                                  width: 80,
-                                  height: 60,
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (BuildContext context) => Pretest1misi1Page(),
-                                        ),
-                                      );
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      elevation: 5,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(100.0),
+                                CircleElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            Pretest1misi1Page(),
                                       ),
-                                    ),
-                                    child: Text(
-                                      '1',
-                                      style: TextStyle(
-                                        fontSize: 25.0,
-                                      ),
-                                    ),
-                                  ),
+                                    );
+                                  },
+                                  text: '1',
                                 ),
                               ],
                             ),
@@ -115,24 +102,17 @@ class Misi1Page extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  width: 80,
-                                  height: 60,
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                      elevation: 5,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(100.0),
+                                CircleElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            Pretest2misi1Page(),
                                       ),
-                                    ),
-                                    child: Text(
-                                      '2',
-                                      style: TextStyle(
-                                        fontSize: 25.0,
-                                      ),
-                                    ),
-                                  ),
+                                    );
+                                  },
+                                  text: '2',
                                 ),
                               ],
                             ),
@@ -140,24 +120,9 @@ class Misi1Page extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Container(
-                                  width: 80,
-                                  height: 60,
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                      elevation: 5,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(100.0),
-                                      ),
-                                    ),
-                                    child: Text(
-                                      '3',
-                                      style: TextStyle(
-                                        fontSize: 25.0,
-                                      ),
-                                    ),
-                                  ),
+                                CircleElevatedButton(
+                                  onPressed: () {},
+                                  text: '3',
                                 ),
                                 SizedBox(width: 10),
                               ],
@@ -199,24 +164,9 @@ class Misi1Page extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(width: 10),
-                                Container(
-                                  width: 80,
-                                  height: 60,
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                      elevation: 10,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(100.0),
-                                      ),
-                                    ),
-                                    child: Text(
-                                      '1',
-                                      style: TextStyle(
-                                        fontSize: 25.0,
-                                      ),
-                                    ),
-                                  ),
+                                CircleElevatedButton(
+                                  onPressed: () {},
+                                  text: '1',
                                 ),
                               ],
                             ),
@@ -224,24 +174,9 @@ class Misi1Page extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  width: 80,
-                                  height: 60,
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                      elevation: 5,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(100.0),
-                                      ),
-                                    ),
-                                    child: Text(
-                                      '2',
-                                      style: TextStyle(
-                                        fontSize: 25.0,
-                                      ),
-                                    ),
-                                  ),
+                                CircleElevatedButton(
+                                  onPressed: () {},
+                                  text: '2',
                                 ),
                               ],
                             ),
@@ -249,24 +184,9 @@ class Misi1Page extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Container(
-                                  width: 80,
-                                  height: 60,
-                                  child: ElevatedButton(
-                                    onPressed: () {},
-                                    style: ElevatedButton.styleFrom(
-                                      elevation: 5,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(100.0),
-                                      ),
-                                    ),
-                                    child: Text(
-                                      '3',
-                                      style: TextStyle(
-                                        fontSize: 25.0,
-                                      ),
-                                    ),
-                                  ),
+                                CircleElevatedButton(
+                                  onPressed: () {},
+                                  text: '3',
                                 ),
                                 SizedBox(width: 10),
                               ],
@@ -287,4 +207,37 @@ class Misi1Page extends StatelessWidget {
   }
 }
 
+class CircleElevatedButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String text;
 
+  const CircleElevatedButton({
+    Key? key,
+    required this.onPressed,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 80,
+      height: 80,
+      margin: EdgeInsets.all(10),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50.0),
+          ),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 25.0,
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -38,6 +38,9 @@ dependencies:
   firebase_core: ^2.23.0
   firebase_auth: ^4.14.1
   shared_preferences: ^2.2.2
+  get: ^4.6.6
+  flutter_svg: ^2.0.9
+  websafe_svg: ^3.0.1+1
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +84,7 @@ flutter:
     - img/play_off.png
     - img/profile_on.png
     - img/profile_off.png
+    - img/bg_mission_1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
