@@ -1,6 +1,6 @@
 # mathplaygame
 
-A new Flutter project.
+An math gamification app using flutter create by nawasena team
 
 ## Getting Started
 
