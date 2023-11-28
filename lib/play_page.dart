@@ -32,44 +32,76 @@ class _PlayPageState extends State<PlayPage> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
     double cardWidth = screenWidth * 0.96; // Mengurangi 10% dari lebar layar
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF023C40),
         title: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
-              'Halo Penjelajah',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-            Text(
-              widget.username,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
+            Column(
+              children: [
+                Text(
+                  'Halo Penjelajah',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+                Text(
+                  widget.username,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            )
           ],
         ),
-        backgroundColor: Color(0xFF023C40),
       ),
-      body: Container(
-        color: Color(0xFF13877E),
-        child: Padding(
-          padding: EdgeInsets.only(top: 15),
-          child: Column(
-            children: [
-              // Tambahkan 4 card di sini
-              buildCard('img/misi1_card_image.png', 'Misi 1', 'Pegunungan Es', cardWidth, Misi1Page()),
-              buildCard('img/misi2_card_image.png', 'Misi 2', 'Pegunungan Es', cardWidth, Misi2Page()),
-              buildCard('img/misi3_card_image.png', 'Misi 3', 'Pegunungan Es', cardWidth, Misi3Page()),
-              buildCard('img/misi4_card_image.png', 'Misi 4', 'Pegunungan Es', cardWidth, Misi4Page()),
-            ],
+      body: SingleChildScrollView(
+        child: Container(
+          color: Color(0xFF13877E),
+          child: Padding(
+            padding: EdgeInsets.only(top: 15),
+            child: Column(
+              children: [
+                // Tambahkan 4 card di sini
+                buildCard(
+                  'img/misi1_card_image.png',
+                  'Misi 1',
+                  'Pegunungan Es',
+                  cardWidth,
+                  Misi1Page(),
+                ),
+                buildCard(
+                  'img/misi2_card_image.png',
+                  'Misi 2',
+                  'Pegunungan Es',
+                  cardWidth,
+                  Misi2Page(),
+                ),
+                buildCard(
+                  'img/misi3_card_image.png',
+                  'Misi 3',
+                  'Pegunungan Es',
+                  cardWidth,
+                  Misi3Page(),
+                ),
+                buildCard(
+                  'img/misi4_card_image.png',
+                  'Misi 4',
+                  'Pegunungan Es',
+                  cardWidth,
+                  Misi4Page(),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -96,17 +128,20 @@ class _PlayPageState extends State<PlayPage> {
         items: [
           BottomNavigationBarItem(
             icon: _currentIndex == 0
-                ? Image.asset('img/home_on.png') // Replace with the path to your active icon
-                : Image.asset('img/home_off.png'), // Replace with the path to your inactive icon
+                ? Image.asset('img/home_on.png')
+                : Image.asset('img/home_off.png'),
             label: 'Home',
-            // selectedIconTheme: IconThemeData(color: Colors.white), // Set the color of the active icon
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.play_circle_fill),
+            icon: _currentIndex == 1
+                ? Image.asset('img/play_on.png')
+                : Image.asset('img/play_off.png'),
             label: 'Play',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: _currentIndex == 2
+                ? Image.asset('img/profile_on.png')
+                : Image.asset('img/profile_off.png'),
             label: 'Profile',
           ),
         ],
@@ -114,8 +149,9 @@ class _PlayPageState extends State<PlayPage> {
     );
   }
 
-  Widget buildCard(String imagePath, String title, String subTitle, double width, Widget page) {
-    return GestureDetector(
+  Widget buildCard(String imagePath, String title, String subTitle,
+      double width, Widget page) {
+    return InkWell(
       onTap: () {
         Navigator.push(
           context,
@@ -123,36 +159,75 @@ class _PlayPageState extends State<PlayPage> {
         );
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 60),
-        height: 142,
-        width: width,
+        height: 200,
+        width: 400,
+        margin: EdgeInsets.only(top: 10, left: 30, right: 30, bottom: 10),
+        // Add margin to the top and bottom
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(imagePath),
             fit: BoxFit.cover,
           ),
-        ),
-        padding: EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(height: 8),
-            Text(
-              subTitle,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-              ),
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: Offset(0, 3),
             ),
           ],
+        ),
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => page,
+              ),
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            primary: Colors.transparent,
+            padding: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            shadowColor: Colors.blue.withOpacity(0.0),
+            elevation: 5,
+          ),
+          child: Container(
+            height: 250,
+            width: 450,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(imagePath),
+              ),
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            padding: EdgeInsets.all(24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  subTitle,
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'profile_page.dart';
-import 'package:mathplaygame/home.dart';
 import 'play_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
+class GlobalColors {
+  static const Color secondColor = Color(0xFF13877E);
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Horizontal Card with Icons'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: HomeScreen(),
-        ),
-      ),
+      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -32,6 +28,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String username = '';
+  IconData activeIcon = Icons.home; // Track the active icon
 
   @override
   void initState() {
@@ -48,143 +45,177 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: Row(
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Row(
+          children: [
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.blue,
+              ),
+              child: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(width: 10),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Selamat Datang',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+                Text(
+                  username,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: GlobalColors.secondColor,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: Image.asset(
+              'img/home_image.png',
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  width: 300,
+                  height: 300,
+                ),
+              ],
+            ),
+          ),
+          Column(
             children: [
-              Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.blue,
-                ),
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Selamat Datang',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                  Text(
-                    username,
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
+              CardWithIcons(activeIcon: activeIcon),
             ],
           ),
-        ),
-        backgroundColor: Color(0xFF13877E),
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          child: Stack(
-            children: [
-              Positioned(
-                bottom: 0,
-                top: 200,
-                left: 0,
-                right: 0,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 70),
-                  child: Image.asset(
-                    'img/home_image.png',
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 300,
-                      height: 300,
-                    ),
-                  ],
-                ),
-              ),
-              Column(
-                children: [
-                  CardWithIcons(),
-                ],
-              ),
-            ],
-          ),
-        ),
+        ],
       ),
     );
   }
 }
 
 class CardWithIcons extends StatelessWidget {
+  final IconData activeIcon;
+
+  const CardWithIcons({Key? key, required this.activeIcon}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      margin: EdgeInsets.only(left: 30.0, top: 685),
       child: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
-              },
-              child: Icon(
-                Icons.home,
-                size: 50.0,
-                color: Colors.blue,
+            Container(
+              width: 70,
+              height: 300,
+              decoration: BoxDecoration(
+                color: Color(0xFF023C40),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(50),
+                  topLeft: Radius.circular(50),
+                ),
               ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => PlayPage()),
-                );
-              },
-              child: Icon(
-                Icons.play_circle_fill,
-                size: 50.0,
-                color: Colors.green,
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()),
-                );
-              },
-              child: Icon(
-                Icons.person,
-                size: 50.0,
-                color: Colors.orange,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          activeIcon == Icons.home
+                              ? 'img/home_on.png'
+                              : 'img/home_off.png',
+                          width: 50.0,
+                          height: 50.0,
+                          color: Colors.blue,
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Home',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => PlayPage()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          'img/play_off.png', // Placeholder image
+                          width: 50.0,
+                          height: 50.0,
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Play', // Placeholder label
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => ProfilePage()),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          'img/profile_off.png', // Placeholder image
+                          width: 50.0,
+                          height: 50.0,
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Profile', // Placeholder label
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -193,5 +224,4 @@ class CardWithIcons extends StatelessWidget {
     );
   }
 }
-
 

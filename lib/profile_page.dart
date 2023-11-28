@@ -31,7 +31,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 context,
                 MaterialPageRoute(builder: (context) => HomeScreen()),
               );
-            } else if (_currentIndex == 1) {
+            } else if (_currentIndex == 1) { // Change from 0 to 1 for the Play icon
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => PlayPage()),
@@ -42,15 +42,22 @@ class _ProfilePageState extends State<ProfilePage> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: _currentIndex == 0
+                ? Image.asset('img/home_on.png') // Replace with the path to your active icon
+                : Image.asset('img/home_off.png'), // Replace with the path to your inactive icon
             label: 'Home',
+            // selectedIconTheme: IconThemeData(color: Colors.white), // Set the color of the active icon
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.play_circle_fill),
+            icon: _currentIndex == 1
+                ? Image.asset('img/play_on.png') // Replace with the path to your active icon
+                : Image.asset('img/play_off.png'), // Replace with the path to your inactive icon
             label: 'Play',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: _currentIndex == 2
+                ? Image.asset('img/profile_on.png') // Replace with the path to your active icon
+                : Image.asset('img/profile_off.png'), // Replace with the path to your inactive icon
             label: 'Profile',
           ),
         ],

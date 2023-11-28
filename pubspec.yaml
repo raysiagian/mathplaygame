@@ -77,6 +77,10 @@ flutter:
     - img/misi4_card_image.png
     - img/home_on.png
     - img/home_off.png
+    - img/play_on.png
+    - img/play_off.png
+    - img/profile_on.png
+    - img/profile_off.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

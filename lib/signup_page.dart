@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'login_page.dart';
 
-
 class SignupPage extends StatefulWidget {
   @override
   State<SignupPage> createState() => _SignUpPageState();
@@ -36,10 +35,29 @@ class _RegistrationStep1PageState extends State<RegistrationStep1Page> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Added Text Widget for 'mathplay gasing' with spacing below
+            Text(
+              'Mathplay Gasing',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 30),
+            // Added Text Widget for 'Masukkan namamu' with spacing below
+            Text(
+              'Masukkan namamu',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(height: 30),
             TextField(
               controller: _usernameController,
               decoration: InputDecoration(
-                  labelText: 'Username',
+                labelText: 'Username',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                   borderSide: const BorderSide(color: Colors.white),
@@ -90,7 +108,6 @@ class _RegistrationStep1PageState extends State<RegistrationStep1Page> {
               },
               child: Text('Selanjutnya'),
             ),
-
             SizedBox(height: 20),
             Padding(
               padding: EdgeInsets.only(top: 20),
@@ -152,7 +169,7 @@ class _RegistrationStep2PageState extends State<RegistrationStep2Page> {
               'Username: ${widget.username}',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -246,7 +263,6 @@ class _RegistrationStep2PageState extends State<RegistrationStep2Page> {
   }
 }
 
-
 class RegistrationStep3Page extends StatefulWidget {
   final String username;
   final String gender;
@@ -281,7 +297,7 @@ class _RegistrationStep3PageState extends State<RegistrationStep3Page> {
               'Gender: ${widget.gender}',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 30),
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
@@ -350,7 +366,8 @@ class _RegistrationStep3PageState extends State<RegistrationStep3Page> {
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
-                                Navigator.pop(context); // Kembali ke halaman login
+                                Navigator.pop(
+                                    context); // Kembali ke halaman login
                               },
                               child: Text('OK'),
                             ),
@@ -406,7 +423,8 @@ class _RegistrationStep3PageState extends State<RegistrationStep3Page> {
               padding: EdgeInsets.only(top: 20),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pop(context); // Kembali ke halaman sebelumnya (RegistrationStep2Page)
+                  Navigator.pop(
+                      context); // Kembali ke halaman sebelumnya (RegistrationStep2Page)
                 },
                 child: RichText(
                   text: TextSpan(
