@@ -41,6 +41,13 @@ dependencies:
   get: ^4.6.6
   flutter_svg: ^2.0.9
   websafe_svg: ^3.0.1+1
+  timer_count_down: ^2.2.2
+  fluttertoast: ^8.2.4
+  firebase_storage: ^11.5.3
+  video_player: ^2.8.1
+  cloud_firestore: ^4.13.3
+  chewie: ^1.7.4
+  appinio_video_player: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -67,25 +74,28 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   # assets:
   assets:
-    - img/app_logo.png
-    - img/app_logo_text.png
-    - img/onboarding1_image.png
-    - img/onboarding2_image.png
-    - img/onboarding3_image.png
-    - img/onboarding4_image.png
-    - img/home_image.png
-    - img/misi1_card_image.png
-    - img/misi2_card_image.png
-    - img/misi3_card_image.png
-    - img/misi4_card_image.png
-    - img/home_on.png
-    - img/home_off.png
-    - img/play_on.png
-    - img/play_off.png
-    - img/profile_on.png
-    - img/profile_off.png
-    - img/bg_mission_1.png
+    - img/
+#    - img/app_logo.png
+#    - img/app_logo_text.png
+#    - img/onboarding1_image.png
+#    - img/onboarding2_image.png
+#    - img/onboarding3_image.png
+#    - img/onboarding4_image.png
+#    - img/home_image.png
+#    - img/misi1_card_image.png
+#    - img/misi2_card_image.png
+#    - img/misi3_card_image.png
+#    - img/misi4_card_image.png
+#    - img/home_on.png
+#    - img/home_off.png
+#    - img/play_on.png
+#    - img/play_off.png
+#    - img/profile_on.png
+#    - img/profile_off.png
+#    - img/bg_mission_1.png
+#    - img/misiselesai_image.png
 
+    - video/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

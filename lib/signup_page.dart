@@ -37,9 +37,9 @@ class _RegistrationStep1PageState extends State<RegistrationStep1Page> {
           children: [
             // Added Text Widget for 'mathplay gasing' with spacing below
             Text(
-              'Mathplay Gasing',
+              'Ayo Buat Karaktermu',
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
@@ -49,7 +49,7 @@ class _RegistrationStep1PageState extends State<RegistrationStep1Page> {
             Text(
               'Masukkan namamu',
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 fontSize: 18,
               ),
             ),
@@ -166,8 +166,21 @@ class _RegistrationStep2PageState extends State<RegistrationStep2Page> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Username: ${widget.username}',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            'Ayo Buat Karaktermu',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+            SizedBox(height: 30),
+            // Added Text Widget for 'Masukkan namamu' with spacing below
+            Text(
+              'Kamu adalah seorang?',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
             ),
             SizedBox(height: 30),
             Row(
@@ -290,12 +303,21 @@ class _RegistrationStep3PageState extends State<RegistrationStep3Page> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Username: ${widget.username}',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              'Mathplay Gasing',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
+            SizedBox(height: 100),
+            // Added Text Widget for 'Masukkan namamu' with spacing below
             Text(
-              'Gender: ${widget.gender}',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              'Ayo Mulai Bertualang',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
             ),
             SizedBox(height: 30),
             TextField(
@@ -416,6 +438,16 @@ class _RegistrationStep3PageState extends State<RegistrationStep3Page> {
                   );
                 }
               },
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(
+                    MediaQuery.of(context).size.width * 0.8,
+                    MediaQuery.of(context).size.width * 0.12,
+                  ),
+                  backgroundColor: Color(0xFF023A3F),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
               child: Text('Daftar'),
             ),
             SizedBox(height: 20),
@@ -423,15 +455,26 @@ class _RegistrationStep3PageState extends State<RegistrationStep3Page> {
               padding: EdgeInsets.only(top: 20),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pop(
-                      context); // Kembali ke halaman sebelumnya (RegistrationStep2Page)
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
                 },
                 child: RichText(
                   text: TextSpan(
-                    text: 'Kembali',
+                    text: 'Sudah punya akun? ',
                     style: TextStyle(
                       color: Colors.white, // Warna teks umum
                     ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Masuk',
+                        style: TextStyle(
+                          color: Color(0xFF023A3F), // Warna teks untuk "Masuk"
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
