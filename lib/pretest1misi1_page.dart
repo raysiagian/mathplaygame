@@ -20,11 +20,11 @@ class _Pretest1misi1PageState extends State<Pretest1misi1Page> {
   bool isAnswered = false;
 
   List<Map<String, dynamic>> questions = [
-    {'question': '1 + 1 = ?', 'options': ['2', '3', '4', '5'], 'correctIndex': 0},
+    {'question': '1 + 1 = ?', 'options': ['3', '2', '4', '5'], 'correctIndex': 1},
     {'question': '2 + 3 = ?', 'options': ['4', '5', '6', '7'], 'correctIndex': 1},
     {'question': '4 + 2 = ?', 'options': ['5', '6', '7', '8'], 'correctIndex': 1},
     {'question': '3 + 3 = ?', 'options': ['5', '6', '7', '8'], 'correctIndex': 1},
-    {'question': '5 + 4 = ?', 'options': ['8', '5', '9', '11'], 'correctIndex': 3},
+    {'question': '5 + 4 = ?', 'options': ['8', '9', '5', '11'], 'correctIndex': 1},
   ];
 
   int countdown = countdownDuration;
