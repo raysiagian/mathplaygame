@@ -37,7 +37,7 @@ class Pretest2misi1Page extends StatefulWidget {
 
 class _Pretest2misi1PageState extends State<Pretest2misi1Page> {
   late CustomVideoPlayerController _customVideoPlayerController;
-  String assetVideoPath = "video/test1.mp4";
+  String assetVideoPath = "video/videomisi1_penjumlahan1.mp4";
   bool isVideoCompleted = false;
 
   @override

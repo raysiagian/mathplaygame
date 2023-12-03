@@ -106,6 +106,16 @@ class _RegistrationStep1PageState extends State<RegistrationStep1Page> {
                   );
                 }
               },
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(
+                  MediaQuery.of(context).size.width * 0.8,
+                  MediaQuery.of(context).size.width * 0.12,
+                ),
+                backgroundColor: Color(0xFF023A3F),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
               child: Text('Selanjutnya'),
             ),
             SizedBox(height: 20),
