@@ -113,16 +113,12 @@ class _Pretest3misi1PageState extends State<Pretest3misi1Page> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Time: ${countdown}s',
-                  style: TextStyle(fontSize: 16.0, color: primaryColor),
-                ),
+                // Text(
+                //   'Time: ${countdown}s',
+                //   style: TextStyle(fontSize: 16.0, color: primaryColor),
+                // ),
                 if (questionIndex < questions.length) SizedBox(height: 20.0),
                 if (questionIndex < questions.length)
-                  Text(
-                    'Pertanyaan ${questionIndex + 1}',
-                    style: TextStyle(fontSize: 20.0, color: primaryColor),
-                  ),
                 if (questionIndex < questions.length) SizedBox(height: 40.0),
                 if (questionIndex < questions.length)
                   Container(
@@ -135,6 +131,11 @@ class _Pretest3misi1PageState extends State<Pretest3misi1Page> {
                       backgroundColor: Colors.grey,
                     ),
                   ),
+                SizedBox(height: 50),
+                Text(
+                  'Pertanyaan ${questionIndex + 1}',
+                  style: TextStyle(fontSize: 20.0, color: primaryColor),
+                ),
               ],
             ),
           ),

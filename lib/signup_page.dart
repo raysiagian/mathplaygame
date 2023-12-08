@@ -28,126 +28,136 @@ class _RegistrationStep1PageState extends State<RegistrationStep1Page> {
 
   @override
   Widget build(BuildContext context) {
+    double buttonWidth = MediaQuery.of(context).size.width * 0.8;
+    double textFieldWidth = MediaQuery.of(context).size.width * 0.8;
+
     return Scaffold(
       backgroundColor: Color(0xFF13877E),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Added Text Widget for 'mathplay gasing' with spacing below
-            Text(
-              'Ayo Buat Karaktermu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 30),
-            // Added Text Widget for 'Masukkan namamu' with spacing below
-            Text(
-              'Masukkan namamu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
-            ),
-            SizedBox(height: 30),
-            TextField(
-              controller: _usernameController,
-              decoration: InputDecoration(
-                labelText: 'Username',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: const BorderSide(color: Colors.white),
+        child: Container(
+          alignment: Alignment.center,
+          child:Column(
+            mainAxisAlignment: MainAxisAlignment.center, // Atur perataan utama ke tengah
+            children: [
+              Text(
+                'Ayo Buat Karaktermu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-                labelStyle: TextStyle(color: Colors.white),
               ),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () async {
-                if (_usernameController.text.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RegistrationStep2Page(
-                        username: _usernameController.text,
-                      ),
+              SizedBox(height: 30),
+              Text(
+                'Masukkan namamu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+              SizedBox(height: 30),
+              Container(
+                width: textFieldWidth,
+                child: TextField(
+                  controller: _usernameController,
+                  style: TextStyle(fontSize: 16),
+                  decoration: InputDecoration(
+                    labelText: 'Username',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: const BorderSide(color: Colors.white),
                     ),
-                  );
-                } else {
-                  // Tampilkan pesan kesalahan jika username kosong
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Error'),
-                        content: Text('Username harus diisi.'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text('OK'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(
-                  MediaQuery.of(context).size.width * 0.8,
-                  MediaQuery.of(context).size.width * 0.12,
-                ),
-                backgroundColor: Color(0xFF023A3F),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-              ),
-              child: Text('Selanjutnya'),
-            ),
-            SizedBox(height: 20),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
-                },
-                child: RichText(
-                  text: TextSpan(
-                    text: 'Sudah punya akun? ',
-                    style: TextStyle(
-                      color: Colors.white, // Warna teks umum
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: Colors.white),
                     ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'Masuk',
-                        style: TextStyle(
-                          color: Color(0xFF023A3F), // Warna teks untuk "Masuk"
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    labelStyle: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: 20),
+              Container(
+                width: buttonWidth,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    if (_usernameController.text.isNotEmpty) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RegistrationStep2Page(
+                            username: _usernameController.text,
+                          ),
+                        ),
+                      );
+                    } else {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('Error'),
+                            content: Text('Username harus diisi.'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(
+                      buttonWidth,
+                      MediaQuery.of(context).size.width * 0.12,
+                    ),
+                    backgroundColor: Color(0xFF023A3F),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  child: Text('Selanjutnya'),
+                ),
+              ),
+              SizedBox(height: 20),
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'Sudah punya akun? ',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'Masuk',
+                          style: TextStyle(
+                            color: Color(0xFF023A3F),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -176,13 +186,13 @@ class _RegistrationStep2PageState extends State<RegistrationStep2Page> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-            'Ayo Buat Karaktermu',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+              'Ayo Buat Karaktermu',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
             SizedBox(height: 30),
             // Added Text Widget for 'Masukkan namamu' with spacing below
             Text(
@@ -248,6 +258,16 @@ class _RegistrationStep2PageState extends State<RegistrationStep2Page> {
                   );
                 }
               },
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(
+                  MediaQuery.of(context).size.width * 0.8,
+                  MediaQuery.of(context).size.width * 0.12,
+                ),
+                backgroundColor: Color(0xFF023A3F),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
               child: Text('Selanjutnya'),
             ),
             SizedBox(height: 20),
@@ -448,16 +468,16 @@ class _RegistrationStep3PageState extends State<RegistrationStep3Page> {
                   );
                 }
               },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(
-                    MediaQuery.of(context).size.width * 0.8,
-                    MediaQuery.of(context).size.width * 0.12,
-                  ),
-                  backgroundColor: Color(0xFF023A3F),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(
+                  MediaQuery.of(context).size.width * 0.8,
+                  MediaQuery.of(context).size.width * 0.12,
                 ),
+                backgroundColor: Color(0xFF023A3F),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
               child: Text('Daftar'),
             ),
             SizedBox(height: 20),
